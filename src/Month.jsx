@@ -259,16 +259,29 @@ let MonthView = React.createClass({
   _headers(row, format, culture){
     let first = row[0]
     let last = row[row.length - 1]
-
-    return dates.range(first, last, 'day').map((day, idx) =>
+    const style = {
+      display: 'flex',
+      alignItems: 'center'
+    }
+    let headers = dates.range(first, last, 'day').map((day, idx) =>
       <div
         key={'header_' + idx}
         className='rbc-header'
-        style={segStyle(1, 7)}
+        style={{...style, flex: 1}}
       >
         { localizer.format(day, format, culture) }
       </div>
     )
+    headers.push(<div
+        key={'header_7'}
+        className='rbc-header'
+        style={style}
+      >
+        TOTAL<br/>PATIENTS<br/>SCHEDULED
+      </div>
+    )
+
+    return headers
   },
 
   _renderMeasureRows(levels, row, idx) {
