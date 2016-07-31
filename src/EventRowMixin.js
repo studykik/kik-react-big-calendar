@@ -28,7 +28,7 @@ export default {
     return {
       segments: [],
       selected: [],
-      slots: 7
+      slots: 8
     }
   },
 

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import dates from './utils/dates';
 import localizer from './localizer'
 import chunk from 'lodash/array/chunk';
+import flattenDeep from 'lodash/array/flattenDeep';
 import omit from 'lodash/object/omit';
 
 import { navigate } from './utils/constants';
@@ -161,6 +162,9 @@ let MonthView = React.createClass({
             ref={!weekIdx && (r => this._firstDateRow = r)}
           >
             { this._dates(week) }
+            <div className="rbc-date-cell" style={segStyle(1, 8)}>
+              { flattenDeep(levels).length + extra.length }
+            </div>
           </div>
           {
             content(levels, week, weekIdx)
@@ -192,7 +196,7 @@ let MonthView = React.createClass({
     <BackgroundCells
       container={() => findDOMNode(this)}
       selectable={this.props.selectable}
-      slots={7}
+      slots={8}
       ref={r => this._bgRows[idx] = r}
       onSelectSlot={onSelectSlot}
     />
@@ -241,7 +245,7 @@ let MonthView = React.createClass({
       return (
         <div
           key={'header_' + colIdx}
-          style={segStyle(1, 7)}
+          style={segStyle(1, 8)}
           className={cn('rbc-date-cell', {
             'rbc-off-range': offRange,
             'rbc-now': dates.eq(day, new Date(), 'day'),
@@ -261,13 +265,15 @@ let MonthView = React.createClass({
     let last = row[row.length - 1]
     const style = {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      flexBasis: '12.5%',
+      maxWidth: '12.5%'
     }
     let headers = dates.range(first, last, 'day').map((day, idx) =>
       <div
         key={'header_' + idx}
         className='rbc-header'
-        style={{...style, flex: 1}}
+        style={style}
       >
         { localizer.format(day, format, culture) }
       </div>
@@ -289,7 +295,7 @@ let MonthView = React.createClass({
 
     return first ? (
       <div className='rbc-row'>
-        <div className='rbc-row-segment' style={segStyle(1, 7)}>
+        <div className='rbc-row-segment' style={segStyle(1, 8)}>
           <div ref={r => this._measureEvent = r} className={cn('rbc-event')}>
             <div className='rbc-event-content'>&nbsp;</div>
           </div>
