@@ -5,6 +5,7 @@ import { segStyle } from './utils/eventLevels';
 import { notify } from './utils/helpers';
 import { dateCellSelection, slotWidth, getCellAtX, pointInBox } from './utils/selection';
 import Selection, { getBoundsForNode } from './Selection';
+import dates from './utils/dates';
 
 class DisplayCells extends React.Component {
 
@@ -33,7 +34,7 @@ class DisplayCells extends React.Component {
   }
 
   render(){
-    let { slots } = this.props;
+    let { slots, row } = this.props;
     let { selecting, startIdx, endIdx } = this.state
 
     let children = [];
@@ -44,7 +45,9 @@ class DisplayCells extends React.Component {
           key={'bg_' + i}
           style={segStyle(1, slots)}
           className={cn('rbc-day-bg', {
-            'rbc-selected-cell': selecting && i >= startIdx && i <= endIdx
+            'rbc-selected-cell': selecting && i >= startIdx && i <= endIdx,
+            'total-col': i === 7,
+            'rbc-now': dates.eq(row[i], new Date(), 'day')
           })}
         />
       )

@@ -117,6 +117,7 @@ let MonthView = React.createClass({
     this._weekCount = weeks.length;
 
     var elementProps = omit(this.props, Object.keys(propTypes));
+    const monthEvents = eventsForWeek(this.props.events, month[0], month[month.length - 1], this.props);
 
     return (
       <div
@@ -124,7 +125,7 @@ let MonthView = React.createClass({
         className={cn('rbc-month-view', elementProps.className)}
       >
         <div className='rbc-row rbc-month-header'>
-          {this._headers(weeks[0], weekdayFormat, culture)}
+          {this._headers(weeks[0], weekdayFormat, culture, monthEvents.length)}
         </div>
         { weeks.map((week, idx) =>
             this.renderWeek(week, idx, measure && this._renderMeasureRows))
@@ -199,6 +200,7 @@ let MonthView = React.createClass({
       slots={8}
       ref={r => this._bgRows[idx] = r}
       onSelectSlot={onSelectSlot}
+      row={row}
     />
     )
   },
@@ -260,7 +262,7 @@ let MonthView = React.createClass({
     })
   },
 
-  _headers(row, format, culture){
+  _headers(row, format, culture, totalEvents){
     let first = row[0]
     let last = row[row.length - 1]
     const style = {
@@ -280,10 +282,15 @@ let MonthView = React.createClass({
     )
     headers.push(<div
         key={'header_7'}
-        className='rbc-header'
-        style={style}
+        className='rbc-header total-col-header'
+        style={Object.assign({}, style, {width: '100%', whiteSpace: 'initial', textAlign: 'center'})}
       >
-        TOTAL<br/>PATIENTS<br/>SCHEDULED
+        <div>
+          <span style={{color: '#fff'}}>
+            PATIENTS SCHEDULED
+          </span>
+          <br/>Total {totalEvents}
+        </div>
       </div>
     )
 
