@@ -163,8 +163,10 @@ let MonthView = React.createClass({
             ref={!weekIdx && (r => this._firstDateRow = r)}
           >
             { this._dates(week) }
-            <div className="rbc-date-cell" style={segStyle(1, 8)}>
-              { flattenDeep(levels).length + extra.length }
+            <div className="rbc-date-cell total-col" style={segStyle(1, 8)}>
+              <span>
+                { flattenDeep(levels).length + extra.length }
+              </span>
             </div>
           </div>
           {

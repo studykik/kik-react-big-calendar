@@ -1,6 +1,24 @@
 @import './variables.less';
 
-
+.total-col-header {
+  background: #00afef;
+}
+.rbc-day-bg.total-col {
+  background: #76daff;
+}
+.rbc-day-bg.rbc-now {
+  background: #a0cf67;
+}
+.rbc-date-cell.total-col {
+  display: flex;
+  justify-content: center;
+  span {
+    font-size: 46px;
+    position: absolute;
+    top: 28px;
+    color: white;
+  }
+}
 .rbc-row {
   display: flex;
   flex-direction: row;
@@ -84,6 +102,7 @@
 
   &.rbc-now {
     font-weight: bold;
+    color: white;
   }
 
   > a {
