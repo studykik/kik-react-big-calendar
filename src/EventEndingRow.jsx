@@ -89,7 +89,7 @@ let EventRow = React.createClass({
           className={'rbc-show-more'}
           onClick={this._showMore.bind(null, slot)}
         >
-          {messages.showMore(count)}
+          See All
         </a>
       ) : false
   },
