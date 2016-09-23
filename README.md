@@ -1,5 +1,6 @@
 react-big-calendar
 ========================
+[![Build Status](https://travis-ci.org/studykik/kik-react-big-calendar.svg?branch=master)](https://travis-ci.org/studykik/kik-react-big-calendar)
 
 An events calendar component built for React and made for modern browsers (read: IE10+) and uses flexbox over the classic tables-ception approach.
 
