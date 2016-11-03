@@ -54,7 +54,8 @@ let propTypes = {
   ]),
 
   onSelectEvent: React.PropTypes.func,
-  onSelectSlot: React.PropTypes.func
+  onSelectSlot: React.PropTypes.func,
+  onSelectDate: React.PropTypes.func,
 };
 
 
@@ -355,7 +356,7 @@ let MonthView = React.createClass({
   _dateClick(date, e){
     e.preventDefault();
     this.clearSelection()
-    notify(this.props.onNavigate, [navigate.DATE, date])
+    notify(this.props.onSelectDate || this.props.onNavigate, [navigate.DATE, date])
   },
 
   _selectEvent(...args){

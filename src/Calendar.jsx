@@ -120,6 +120,8 @@ let Calendar = React.createClass({
      * function ({ start: Date, end: Date }) : boolean
      * ```
      */
+    onSelectDate: PropTypes.func,
+
     onSelecting: PropTypes.func,
 
     /**
@@ -420,6 +422,7 @@ let Calendar = React.createClass({
           onHeaderClick={this._headerClick}
           onSelectEvent={this._select}
           onSelectSlot={this._selectSlot}
+          onSelectDate={this._selectDate}
           onShowMore={this._showMore}
         />
       </div>
@@ -456,6 +459,10 @@ let Calendar = React.createClass({
 
   _selectSlot(slotInfo){
     notify(this.props.onSelectSlot, slotInfo)
+  },
+
+  _selectDate(...args){
+    notify(this.props.onSelectDate, args)
   },
 
   _headerClick(date){
