@@ -287,7 +287,7 @@ let MonthView = React.createClass({
     headers.push(<div
         key={'header_7'}
         className='rbc-header total-col-header'
-        style={Object.assign({}, style, {fontSize:'22px', flextDirection: 'column', whiteSpace: 'initial'})}
+        style={Object.assign({}, style, {fontSize:'22px', flexDirection: 'column', whiteSpace: 'initial', textAlign: 'center'})}
       >
         <span style={{color: '#fff'}}>
           PATIENTS<br/>SCHEDULED
