@@ -292,7 +292,7 @@ let MonthView = React.createClass({
         <span style={{color: '#fff'}}>
           PATIENTS<br/>SCHEDULED
         </span>
-        Total {totalEvents}
+        <span style={{fontWeight: '400'}}>Total {totalEvents}</span>
       </div>
     )
 
