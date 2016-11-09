@@ -12,16 +12,16 @@ let Toolbar = React.createClass({
 
     return (
       <div className='rbc-toolbar'>
-	      <a href="#" className="prev-month pull-left" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
-          <i className="icon-arrow_carrot-left"></i>
+	      <a href="#" className="btn-prev pull-left" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+          <i className="icomoon-arrow_carrot-left"></i>
         </a>
 
         <span className='month-label'>
           { label }
         </span>
 
-				<a href="#" className="next-month pull-right" onClick={this.navigate.bind(null, navigate.NEXT)}>
-          <i className="icon-arrow_carrot-right"></i>
+				<a href="#" className="btn-next pull-right" onClick={this.navigate.bind(null, navigate.NEXT)}>
+          <i className="icomoon-arrow_carrot-right"></i>
         </a>
       </div>
     );

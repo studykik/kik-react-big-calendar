@@ -20,7 +20,7 @@ let weekRangeFormat = ({ start, end }, culture, local)=>
     ' - ' + local.format(end, dates.eq(start, end, 'month') ? 'DD' : 'MMM DD', culture)
 
 export let formats = {
-  dateFormat: 'DD',
+  dateFormat: 'D',
   dayFormat: 'ddd DD/MM',
   weekdayFormat: 'ddd',
 

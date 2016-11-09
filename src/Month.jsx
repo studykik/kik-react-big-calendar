@@ -272,7 +272,8 @@ let MonthView = React.createClass({
       display: 'flex',
       alignItems: 'center',
       flexBasis: '12.5%',
-      maxWidth: '12.5%'
+      maxWidth: '12.5%',
+      fontSize: '18px'
     }
     let headers = dates.range(first, last, 'day').map((day, idx) =>
       <div
@@ -280,20 +281,18 @@ let MonthView = React.createClass({
         className='rbc-header'
         style={style}
       >
-        { localizer.format(day, format, culture) }
+        { localizer.format(day, format, culture).toUpperCase() }
       </div>
     )
     headers.push(<div
         key={'header_7'}
         className='rbc-header total-col-header'
-        style={Object.assign({}, style, {width: '100%', whiteSpace: 'initial', textAlign: 'center'})}
+        style={Object.assign({}, style, {fontSize:'22px', flextDirection: 'column', whiteSpace: 'initial'})}
       >
-        <div>
-          <span style={{color: '#fff'}}>
-            PATIENTS SCHEDULED
-          </span>
-          <br/>Total {totalEvents}
-        </div>
+        <span style={{color: '#fff'}}>
+          PATIENTS<br/>SCHEDULED
+        </span>
+        Total {totalEvents}
       </div>
     )
 
