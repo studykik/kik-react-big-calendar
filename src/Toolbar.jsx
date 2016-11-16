@@ -12,7 +12,7 @@ let Toolbar = React.createClass({
 
     return (
       <div className='rbc-toolbar'>
-	      <a href="#" className="btn-prev pull-left" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+        <a href="#" className="btn-prev pull-left" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
           <i className="icomoon-arrow_carrot-left"></i>
         </a>
 

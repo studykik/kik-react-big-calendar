@@ -55,7 +55,7 @@ let propTypes = {
 
   onSelectEvent: React.PropTypes.func,
   onSelectSlot: React.PropTypes.func,
-  onSelectDate: React.PropTypes.func,
+  onSelectDate: React.PropTypes.func
 };
 
 
