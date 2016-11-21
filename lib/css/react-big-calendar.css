@@ -74,7 +74,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-toolbar {
   min-height: 59px;
-  padding: 13px 10px;
+  padding: 13px 16px;
   background: #f78e1e;
   position: relative;
 }
@@ -176,7 +176,6 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-month-view {
   position: relative;
-  border: 1px solid #f78e1e;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -187,16 +186,16 @@ button.rbc-input::-moz-focus-inner {
   height: 100%;
 }
 .rbc-month-view .rbc-header {
-  border-bottom: 1px solid #f78e1e;
+  border-bottom: 2px solid #f78e1e;
   text-align: inherit;
   padding: 8px;
 }
 .rbc-month-view .rbc-header + .rbc-header {
-  border-left: 1px solid #f78e1e;
+  border-left: 2px solid #f78e1e;
 }
 .rbc-rtl .rbc-month-view .rbc-header + .rbc-header {
   border-left-width: 0;
-  border-right: 1px solid #f78e1e;
+  border-right: 2px solid #f78e1e;
 }
 .rbc-month-header {
   display: -ms-flexbox;
@@ -216,7 +215,7 @@ button.rbc-input::-moz-focus-inner {
   height: 100%;
 }
 .rbc-month-row + .rbc-month-row {
-  border-top: 1px solid #f78e1e;
+  border-top: 2px solid #f78e1e;
 }
 .rbc-date-cell {
   padding: 5px 8px;
@@ -246,25 +245,25 @@ button.rbc-input::-moz-focus-inner {
   overflow: hidden;
 }
 .rbc-day-bg + .rbc-day-bg {
-  border-left: 1px solid #f78e1e;
+  border-left: 2px solid #f78e1e;
 }
 .rbc-rtl .rbc-day-bg + .rbc-day-bg {
   border-left-width: 0;
-  border-right: 1px solid #f78e1e;
+  border-right: 2px solid #f78e1e;
 }
 .rbc-overlay {
   position: absolute;
   z-index: 5;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #e5e5e5;
   background-color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
   padding: 10px;
 }
 .rbc-overlay > * + * {
-  margin-top: 1px;
+  margin-top: 2px;
 }
 .rbc-overlay-header {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
   margin: -10px -10px 5px -10px;
   padding: 2px 10px;
 }
