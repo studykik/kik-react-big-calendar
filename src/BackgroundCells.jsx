@@ -12,7 +12,8 @@ class DisplayCells extends React.Component {
   static propTypes = {
     selectable: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
-    slots: React.PropTypes.number
+    slots: React.PropTypes.number,
+    eventsCount: React.PropTypes.number,
   }
 
   state = { selecting: false }
@@ -34,7 +35,7 @@ class DisplayCells extends React.Component {
   }
 
   render(){
-    let { slots, row } = this.props;
+    let { slots, row, eventsCount } = this.props;
     let { selecting, startIdx, endIdx } = this.state
 
     let children = [];
@@ -49,7 +50,11 @@ class DisplayCells extends React.Component {
             'total-col': i === 7,
             'rbc-now': dates.eq(row[i], new Date(), 'day')
           })}
-        />
+        >
+          { i === 7 &&
+            <span>{eventsCount}</span>
+          }
+        </div>
       )
     }
 

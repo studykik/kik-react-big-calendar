@@ -154,7 +154,7 @@ let MonthView = React.createClass({
         ref={!weekIdx && (r => this._firstRow = r)}
       >
         {
-          this.renderBackground(week, weekIdx)
+          this.renderBackground(week, weekIdx, flattenDeep(levels).length + extra.length)
         }
         <div
           className='rbc-row-content'
@@ -165,9 +165,6 @@ let MonthView = React.createClass({
           >
             { this._dates(week) }
             <div className="rbc-date-cell total-col" style={segStyle(1, 8)}>
-              <span>
-                { flattenDeep(levels).length + extra.length }
-              </span>
             </div>
           </div>
           {
@@ -185,7 +182,7 @@ let MonthView = React.createClass({
     )
   },
 
-  renderBackground(row, idx){
+  renderBackground(row, idx, eventsCount){
     let self = this;
 
     function onSelectSlot({ start, end }) {
@@ -204,6 +201,7 @@ let MonthView = React.createClass({
       ref={r => this._bgRows[idx] = r}
       onSelectSlot={onSelectSlot}
       row={row}
+      eventsCount={eventsCount}
     />
     )
   },

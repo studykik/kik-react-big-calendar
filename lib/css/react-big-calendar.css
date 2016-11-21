@@ -133,21 +133,18 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-day-bg.total-col {
   background: #76daff;
-}
-.rbc-day-bg.rbc-now {
-  background: #a0cf67;
-}
-.rbc-date-cell.total-col {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-}
-.rbc-date-cell.total-col span {
+  -ms-flex-align: center;
+      align-items: center;
   font-size: 46px;
-  position: absolute;
-  top: 28px;
+  font-weight: bold;
   color: white;
+}
+.rbc-day-bg.rbc-now {
+  background: #a0cf67;
 }
 .rbc-row {
   display: -ms-flexbox;
