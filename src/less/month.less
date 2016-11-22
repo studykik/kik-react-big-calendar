@@ -40,10 +40,10 @@
   &:extend(.rbc-ellipsis);
   background-color: transparent;
   z-index: @event-zindex;
-  font-weight: bold;
-  font-size: 85%;
+  margin-top: 3px;
+  font-size: 13px;
   height: auto;
-  line-height: normal;
+  line-height: 1.25;
   white-space: nowrap;
   color: #00afef;
   text-align: center;
@@ -62,7 +62,7 @@
   .rbc-header {
     border-bottom: 2px solid @cell-border;
     text-align: inherit;
-    padding: 8px;
+    padding: 10px;
   }
 
   .rbc-header + .rbc-header {
@@ -95,7 +95,7 @@
 }
 
 .rbc-date-cell {
-  padding: 5px 8px;
+  padding: 12px;
   text-align: left;
 
   &.rbc-now {
