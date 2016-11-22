@@ -163,10 +163,10 @@ button.rbc-input::-moz-focus-inner {
 .rbc-show-more {
   background-color: transparent;
   z-index: 4;
-  font-weight: bold;
-  font-size: 85%;
+  margin-top: 3px;
+  font-size: 13px;
   height: auto;
-  line-height: normal;
+  line-height: 1.25;
   white-space: nowrap;
   color: #00afef;
   text-align: center;
@@ -185,7 +185,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-month-view .rbc-header {
   border-bottom: 2px solid #f78e1e;
   text-align: inherit;
-  padding: 8px;
+  padding: 10px;
 }
 .rbc-month-view .rbc-header + .rbc-header {
   border-left: 2px solid #f78e1e;
@@ -215,7 +215,7 @@ button.rbc-input::-moz-focus-inner {
   border-top: 2px solid #f78e1e;
 }
 .rbc-date-cell {
-  padding: 5px 8px;
+  padding: 12px;
   text-align: left;
 }
 .rbc-date-cell.rbc-now {

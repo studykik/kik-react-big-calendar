@@ -67,8 +67,8 @@ let MonthView = React.createClass({
 
   getInitialState(){
     return {
-      rowLimit: 4,
-      needLimitMeasure: false
+      rowLimit: 3,
+      needLimitMeasure: true
     }
   },
 
