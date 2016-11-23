@@ -366,6 +366,10 @@ let Calendar = React.createClass({
     return views[this.props.view];
   },
 
+  navigateToToday() {
+    this._navigate(navigate.TODAY);
+  },
+
   render() {
     let {
         view, toolbar, events
