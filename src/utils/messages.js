@@ -15,7 +15,7 @@ import invariant from 'invariant';
   today: 'today',
   agenda: 'agenda',
 
-  showMore: total => `+${total} more`
+  showMore: total => `${total} More`
 }
 
 export function set(key, msg){

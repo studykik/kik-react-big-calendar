@@ -1,6 +1,7 @@
 import React from 'react';
 import EventRowMixin from './EventRowMixin';
 import { eventLevels } from './utils/eventLevels';
+import message from './utils/messages';
 import range from 'lodash/utility/range';
 
 let isSegmentInSlot = (seg, slot) => seg.left <= slot && seg.right >= slot;
@@ -77,7 +78,7 @@ let EventRow = React.createClass({
   },
 
   renderShowMore(segments, slot) {
-    // let messages = message(this.props.messages)
+    let messages = message(this.props.messages)
     let count = eventsInSlot(segments, slot)
 
     return count
@@ -88,7 +89,7 @@ let EventRow = React.createClass({
           className={'rbc-show-more'}
           onClick={this._showMore.bind(null, slot)}
         >
-          See All
+          { messages.showMore(count) }
         </a>
       ) : false
   },
