@@ -215,7 +215,7 @@ button.rbc-input::-moz-focus-inner {
   border-top: 2px solid #f78e1e;
 }
 .rbc-date-cell {
-  padding: 12px;
+  padding: 9px 12px;
   text-align: left;
 }
 .rbc-date-cell.rbc-now {
