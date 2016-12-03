@@ -476,6 +476,12 @@ let Calendar = React.createClass({
       this._view(views.day)
 
     this._navigate(navigate.DATE, date)
+  },
+
+  _showMore(data) {
+    if (this.props.onShowMore) {
+      notify(this.props.onShowMore, data);
+    }
   }
 });
 
