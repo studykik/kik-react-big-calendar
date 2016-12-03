@@ -478,9 +478,9 @@ let Calendar = React.createClass({
     this._navigate(navigate.DATE, date)
   },
 
-  _showMore(data) {
+  _showMore(events, date, slot) {
     if (this.props.onShowMore) {
-      notify(this.props.onShowMore, data);
+      notify(this.props.onShowMore, [events, date]);
     }
   }
 });
