@@ -18,6 +18,7 @@ import EventEndingRow from './EventEndingRow';
 import Popup from './Popup';
 import Overlay from 'react-overlays/lib/Overlay';
 import BackgroundCells from './BackgroundCells';
+import moment from 'moment-timezone';
 
 import { dateFormat } from './utils/propTypes';
 import {
@@ -34,7 +35,7 @@ let propTypes = {
 
   culture: React.PropTypes.string,
 
-  date: React.PropTypes.instanceOf(Date),
+  date: React.PropTypes.object,
 
   min: React.PropTypes.instanceOf(Date),
   max: React.PropTypes.instanceOf(Date),
@@ -108,9 +109,23 @@ let MonthView = React.createClass({
     window.removeEventListener('resize', this._resizeListener, false)
   },
 
+  getTimezoneDate(date, timezone) {
+    // we need to compensate for big calendar using a local date offset instead of an international one
+    const offset = Math.abs(moment().local().utcOffset() - moment().tz(timezone).utcOffset());
+    let selectedDate;
+    if (offset > 0) {
+      selectedDate = moment(date).add(offset, 'minute').toDate();
+    } else if (offset === 0) {
+      selectedDate = date;
+    } else {
+      selectedDate = moment(date).subtract(offset, 'minute').toDate();
+    }
+    return selectedDate;
+  },
+
   render() {
-    var { date, culture, weekdayFormat } = this.props
-      , month = dates.visibleDays(date, culture)
+    var { date, timezone, culture, weekdayFormat } = this.props
+      , month = dates.visibleDays(this.getTimezoneDate(date, timezone), culture)
       , weeks  = chunk(month, 7);
 
     let measure = this.state.needLimitMeasure

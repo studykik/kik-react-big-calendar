@@ -21,6 +21,7 @@ import omit from 'lodash/object/omit';
 import defaults from 'lodash/object/defaults';
 import transform from 'lodash/object/transform';
 import mapValues from 'lodash/object/mapValues';
+import moment from 'moment-timezone';
 
 function viewNames(_views){
   return !Array.isArray(_views) ? Object.keys(_views) : _views
@@ -31,7 +32,7 @@ function isValidView(view, { views: _views }) {
   return names.indexOf(view) !== -1
 }
 
-let now = new Date();
+let now = new moment();
 
 /**
  * react-big-calendar is full featured Calendar component for managing events and dates. It uses
@@ -58,7 +59,7 @@ let Calendar = React.createClass({
      *
      * @controllable onNavigate
      */
-    date: PropTypes.instanceOf(Date),
+    date: PropTypes.object,
 
     /**
      * The current view of the calendar.
@@ -168,6 +169,11 @@ let Calendar = React.createClass({
      * switch the calendar to a `right-to-left` read direction.
      */
     rtl: PropTypes.bool,
+
+    /**
+     * Switch the calendar to display in a certain timezone.
+     */
+    timezone: PropTypes.string,
 
     /**
      * Optionally provide a function that returns an object of className or style props
@@ -338,6 +344,15 @@ let Calendar = React.createClass({
       startAccessor: 'start',
       endAccessor: 'end'
     };
+  },
+
+  componentWillUpdate(nextProps, nextState) {
+    const { timezone } = this.props;
+    if (typeof nextProps.timezone === 'string' && nextProps.timezone !== timezone) {
+      moment.tz.setDefault(timezone);
+      now = moment();
+      this.props.date = now;
+    }
   },
 
   getViews() {
