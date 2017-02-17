@@ -22,10 +22,12 @@ let EventCell = React.createClass({
     if (eventPropGetter)
       var { style, className: xClassName } = eventPropGetter(event, start, end, selected);
 
+    const elementProps = Object.assign({}, props)
+    delete elementProps.allDayAccessor
     return (
       <div
-        {...props}
-        style={{...props.style, ...style}}
+        {...elementProps}
+        style={{...elementProps.style, ...style}}
         className={cn('rbc-event', className, xClassName, {
           'rbc-selected': selected,
           'rbc-event-allday': isAllDay || dates.diff(start, dates.ceil(end, 'day'), 'day') > 1,

@@ -410,6 +410,12 @@ let Calendar = React.createClass({
 
     let ToolbarToRender = components.toolbar || Toolbar
 
+    elementProps = Object.assign({}, elementProps)
+    delete elementProps.defaultDate
+    delete elementProps.culture
+    delete elementProps.eventOffset
+    delete elementProps.onShowMore
+
     return (
       <div {...elementProps}
         className={cn('rbc-calendar', className, {

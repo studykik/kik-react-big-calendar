@@ -132,8 +132,38 @@ let MonthView = React.createClass({
 
     this._weekCount = weeks.length;
 
-    var elementProps = omit(this.props, Object.keys(propTypes));
+    let elementProps = omit(this.props, Object.keys(propTypes));
     const monthEvents = eventsForWeek(this.props.events, month[0], month[month.length - 1], this.props);
+
+    elementProps = Object.assign({}, elementProps)
+    delete elementProps.selectable
+    delete elementProps.timezone
+    delete elementProps.onNavigate
+    delete elementProps.eventPropGetter
+    delete elementProps.onView
+    delete elementProps.views
+    delete elementProps.titleAccessor
+    delete elementProps.allDayAccessor
+    delete elementProps.startAccessor
+    delete elementProps.endAccessor
+    delete elementProps.dayFormat
+    delete elementProps.selectRangeFormat
+    delete elementProps.timeGutterFormat
+    delete elementProps.monthHeaderFormat
+    delete elementProps.dayHeaderFormat
+    delete elementProps.dayRangeHeaderFormat
+    delete elementProps.agendaHeaderFormat
+    delete elementProps.agendaDateFormat
+    delete elementProps.agendaTimeFormat
+    delete elementProps.agendaTimeRangeFormat
+    delete elementProps.formats
+    delete elementProps.events
+    delete elementProps.components
+    delete elementProps.onHeaderClick
+    delete elementProps.defaultDate
+    delete elementProps.eventOffset
+    delete elementProps.onShowMore
+    delete elementProps.eventTimeRangeFormat
 
     return (
       <div
