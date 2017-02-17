@@ -391,7 +391,7 @@ let MonthView = React.createClass({
     this.setState({
       needLimitMeasure: false,
       rowLimit: Math.max(
-        Math.floor(eventSpace / eventHeight), 1)
+        Math.floor(eventSpace / eventHeight) - 1, 1)
     })
   },
 
@@ -443,7 +443,7 @@ let MonthView = React.createClass({
       notify(this.props.onNavigate, [navigate.DATE, date])
     }
 
-    notify(this.props.onShowMore, [events, date, slot])
+    notify(this.props.onShowMore, [events, date])
   },
 
   clearSelection(){

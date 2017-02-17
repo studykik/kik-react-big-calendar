@@ -64,8 +64,8 @@ export function inRange(e, start, end, { startAccessor, endAccessor }){
   let eStart = get(e, startAccessor).startOf('day')
   let eEnd = get(e, endAccessor).endOf('day')
 
-  let startsBeforeEnd = dates.lte(eStart, end, 'day')
-  let endsAfterStart = dates.gt(eEnd, start, 'day')
+  let startsBeforeEnd = eStart.isSameOrBefore(end, 'day')
+  let endsAfterStart = eEnd.isSameOrAfter(start, 'day')
 
   return startsBeforeEnd && endsAfterStart
 }

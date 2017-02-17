@@ -346,7 +346,7 @@ let Calendar = React.createClass({
     };
   },
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps) {
     const { timezone } = this.props;
     if (typeof nextProps.timezone === 'string' && nextProps.timezone !== timezone) {
       moment.tz.setDefault(timezone);
@@ -499,7 +499,7 @@ let Calendar = React.createClass({
     this._navigate(navigate.DATE, date)
   },
 
-  _showMore(events, date, slot) {
+  _showMore(events, date) {
     if (this.props.onShowMore) {
       notify(this.props.onShowMore, [events, date]);
     }

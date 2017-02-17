@@ -24,6 +24,7 @@ let EventCell = React.createClass({
 
     const elementProps = Object.assign({}, props)
     delete elementProps.allDayAccessor
+
     return (
       <div
         {...elementProps}
