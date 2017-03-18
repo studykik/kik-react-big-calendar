@@ -346,9 +346,9 @@ let MonthView = React.createClass({
     let first = idx === 0;
 
     return first ? (
-      <div className='rbc-row'>
+      <div className='rbc-row' ref={r => this._measureEvent = r}>
         <div className='rbc-row-segment' style={segStyle(1, 8)}>
-          <div ref={r => this._measureEvent = r} className={cn('rbc-event')}>
+          <div className={cn('rbc-event')}>
             <div className='rbc-event-content'>&nbsp;</div>
           </div>
         </div>
