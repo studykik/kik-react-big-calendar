@@ -391,7 +391,7 @@ let MonthView = React.createClass({
     this.setState({
       needLimitMeasure: false,
       rowLimit: Math.max(
-        Math.floor(eventSpace / eventHeight), 1)
+        Math.floor(eventSpace / eventHeight) - 1, 1)
     })
   },
 
