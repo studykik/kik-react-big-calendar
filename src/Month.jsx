@@ -56,7 +56,9 @@ let propTypes = {
 
   onSelectEvent: React.PropTypes.func,
   onSelectSlot: React.PropTypes.func,
-  onSelectDate: React.PropTypes.func
+  onSelectDate: React.PropTypes.func,
+  additionalColumnMarkup: React.PropTypes.string,
+  totalString: React.PropTypes.string
 };
 
 
@@ -124,7 +126,7 @@ let MonthView = React.createClass({
   },
 
   render() {
-    var { date, timezone, culture, weekdayFormat } = this.props
+    var { date, timezone, culture, weekdayFormat, additionalColumnMarkup, totalString } = this.props
       , month = dates.visibleDays(this.getTimezoneDate(date, timezone), culture)
       , weeks  = chunk(month, 7);
 
@@ -165,13 +167,16 @@ let MonthView = React.createClass({
     delete elementProps.onShowMore
     delete elementProps.eventTimeRangeFormat
 
+    const displayAdditionalColumnMarkup = additionalColumnMarkup ? additionalColumnMarkup : 'PATIENTS <br /> SCHEDULED';
+    const displayTotalString = totalString ? totalString : 'Total';
+
     return (
       <div
         {...elementProps}
         className={cn('rbc-month-view', elementProps.className)}
       >
         <div className='rbc-row rbc-month-header'>
-          {this._headers(weeks[0], weekdayFormat, culture, monthEvents.length)}
+          {this._headers(weeks[0], weekdayFormat, culture, monthEvents.length, displayAdditionalColumnMarkup, displayTotalString)}
         </div>
         { weeks.map((week, idx) =>
             this.renderWeek(week, idx, measure && this._renderMeasureRows))
@@ -308,7 +313,7 @@ let MonthView = React.createClass({
     })
   },
 
-  _headers(row, format, culture, totalEvents){
+  _headers(row, format, culture, totalEvents, additionalColumnMarkup, totalString){
     let first = row[0]
     let last = row[row.length - 1]
     const style = {
@@ -332,10 +337,8 @@ let MonthView = React.createClass({
         className='rbc-header total-col-header'
         style={Object.assign({}, style, {fontSize:'22px', flexDirection: 'column', whiteSpace: 'initial', textAlign: 'center'})}
       >
-        <span style={{color: '#fff'}}>
-          PATIENTS<br/>SCHEDULED
-        </span>
-        <span style={{fontWeight: '400'}}>Total {totalEvents}</span>
+        <span style={{color: '#fff'}} dangerouslySetInnerHTML={{ __html: additionalColumnMarkup }} />
+        <span style={{fontWeight: '400'}}>{totalString} {totalEvents}</span>
       </div>
     )
 
