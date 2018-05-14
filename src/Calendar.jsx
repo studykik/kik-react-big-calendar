@@ -70,6 +70,20 @@ let Calendar = React.createClass({
     view: PropTypes.string,
 
     /**
+     * markup for additional column (to allow localization).
+     *
+     *  @default 'PATIENTS <br /> SCHEDULED'
+     */
+    additionalColumnMarkup: PropTypes.string,
+
+    /**
+     * text for Total (to allow localization).
+     *
+     *  @default 'Total'
+     */
+    totalString: PropTypes.string,
+
+    /**
      * An array of event objects to display on the calendar
      */
     events: PropTypes.arrayOf(PropTypes.object),
