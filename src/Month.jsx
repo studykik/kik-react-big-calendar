@@ -306,7 +306,7 @@ let MonthView = React.createClass({
           })}
         >
           <a href='#' onClick={this._dateClick.bind(null, day)}>
-            { localizer.format(day, this.props.dateFormat, this.props.culture) }
+            { localizer.format(this.getTimezoneDate(day, this.props.timezone), this.props.dateFormat, this.props.culture) }
           </a>
         </div>
       )
@@ -329,7 +329,7 @@ let MonthView = React.createClass({
         className='rbc-header'
         style={style}
       >
-        { localizer.format(day, format, culture).toUpperCase() }
+        { localizer.format(this.getTimezoneDate(day, this.props.timezone), format, culture).toUpperCase() }
       </div>
     )
     headers.push(<div
@@ -401,7 +401,7 @@ let MonthView = React.createClass({
   _dateClick(date, e){
     e.preventDefault();
     this.clearSelection()
-    notify(this.props.onSelectDate || this.props.onNavigate, [navigate.DATE, date])
+    notify(this.props.onSelectDate || this.props.onNavigate, [navigate.DATE, this.getTimezoneDate(date, this.props.timezone)])
   },
 
   _selectEvent(...args){
@@ -420,7 +420,7 @@ let MonthView = React.createClass({
 
     notify(this.props.onSelectSlot, {
       slots,
-      start: slots[0],
+      start: this.getTimezoneDate(slots[0], this.props.timezone),
       end: slots[slots.length - 1]
     })
   },
