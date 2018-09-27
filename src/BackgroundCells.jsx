@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
 import { segStyle } from './utils/eventLevels';
@@ -10,10 +11,10 @@ import dates from './utils/dates';
 class DisplayCells extends React.Component {
 
   static propTypes = {
-    selectable: React.PropTypes.bool,
-    onSelect: React.PropTypes.func,
-    slots: React.PropTypes.number,
-    eventsCount: React.PropTypes.number
+    selectable: PropTypes.bool,
+    onSelect: PropTypes.func,
+    slots: PropTypes.number,
+    eventsCount: PropTypes.number
   }
 
   state = { selecting: false }
