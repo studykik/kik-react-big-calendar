@@ -1,0 +1,38 @@
+@import './variables.less';
+
+@active-background: darken(@btn-bg, 10%);
+@active-border: darken(@btn-border, 12%);
+
+.rbc-toolbar {
+  min-height: 59px;
+  padding: 13px 16px;
+  background: #f78e1e;
+  position: relative;
+
+  .month-label {
+    top: 0;
+    left: 50px;
+    right: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 59px;
+    text-align: center;
+    position: absolute;
+    text-transform: uppercase;
+  }
+
+  .prev-month, .next-month {
+    color: #fff;
+    z-index: 3;
+    display: block;
+    width: 39px;
+    height: 33px;
+    font-size: 24px;
+    line-height: 35px;
+    position: relative;
+    border-radius: 3px;
+    text-align: center;
+    background: #ffc689;
+  }
+}
