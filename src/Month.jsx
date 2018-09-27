@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
@@ -63,7 +64,7 @@ let propTypes = {
 };
 
 
-let MonthView = React.createClass({
+let MonthView = createReactClass({
 
   displayName: 'MonthView',
 

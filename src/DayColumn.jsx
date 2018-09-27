@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
@@ -40,7 +41,7 @@ function overlaps(event, events, { startAccessor, endAccessor }, last) {
   return offset
 }
 
-let DaySlot = React.createClass({
+let DaySlot = createReactClass({
 
   propTypes: {
     events: PropTypes.array.isRequired,

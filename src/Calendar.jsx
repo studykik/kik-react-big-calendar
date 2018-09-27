@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import uncontrollable from 'uncontrollable';
 import cn from 'classnames';
 import {
@@ -52,7 +53,7 @@ let now = new moment();
  * on `Apr 8th 12:01:00 am` will. If you want _inclusive_ ranges consider providing a
  * function `endAccessor` that returns the end date + 1 day for those events that end at midnight.
  */
-let Calendar = React.createClass({
+let Calendar = createReactClass({
 
   propTypes: {
     /**
