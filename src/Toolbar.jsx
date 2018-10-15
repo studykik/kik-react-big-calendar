@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import cn from 'classnames';
 import message from './utils/messages';
 import { navigate } from './utils/constants';
 
-let Toolbar = React.createClass({
+let Toolbar = createReactClass({
 
   render() {
     let { messages, label } = this.props;

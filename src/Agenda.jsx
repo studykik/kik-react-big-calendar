@@ -1,4 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
+
 import message from './utils/messages';
 import localizer from './localizer'
 
@@ -12,7 +15,7 @@ import scrollbarSize from 'dom-helpers/util/scrollbarSize';
 import { inRange } from './utils/eventLevels';
 
 
-let Agenda = React.createClass({
+let Agenda = createReactClass({
 
   propTypes: {
     messages: PropTypes.shape({

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import cn from 'classnames'
 
 export default class TimeSlot extends Component {

@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import cn from 'classnames';
 import dates from './utils/dates';
 import { accessor as get } from './utils/accessors';
 
-let EventCell = React.createClass({
+let EventCell = createReactClass({
   render() {
     let {
         className, event, selected, eventPropGetter

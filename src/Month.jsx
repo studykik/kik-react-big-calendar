@@ -1,4 +1,6 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
 import dates from './utils/dates';
@@ -33,36 +35,36 @@ let isSegmentInSlot = (seg, slot) => seg.left <= slot && seg.right >= slot;
 let propTypes = {
   ...EventRow.PropTypes,
 
-  culture: React.PropTypes.string,
+  culture: PropTypes.string,
 
-  date: React.PropTypes.object,
+  date: PropTypes.object,
 
-  min: React.PropTypes.instanceOf(Date),
-  max: React.PropTypes.instanceOf(Date),
+  min: PropTypes.instanceOf(Date),
+  max: PropTypes.instanceOf(Date),
 
   dateFormat,
 
   weekdayFormat: dateFormat,
 
-  popup: React.PropTypes.bool,
+  popup: PropTypes.bool,
 
-  popupOffset: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.shape({
-      x: React.PropTypes.number,
-      y: React.PropTypes.number
+  popupOffset: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.shape({
+      x: PropTypes.number,
+      y: PropTypes.number
     })
   ]),
 
-  onSelectEvent: React.PropTypes.func,
-  onSelectSlot: React.PropTypes.func,
-  onSelectDate: React.PropTypes.func,
-  additionalColumnMarkup: React.PropTypes.string,
-  totalString: React.PropTypes.string
+  onSelectEvent: PropTypes.func,
+  onSelectSlot: PropTypes.func,
+  onSelectDate: PropTypes.func,
+  additionalColumnMarkup: PropTypes.string,
+  totalString: PropTypes.string
 };
 
 
-let MonthView = React.createClass({
+let MonthView = createReactClass({
 
   displayName: 'MonthView',
 
